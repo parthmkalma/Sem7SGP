@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../UserContext"; // Import your context hook
 
 function Navbar() {
+  const { name } = useUser(); // Get the name from context
+
   return (
     <div>
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -25,12 +28,16 @@ function Navbar() {
           >
             How It Works
           </Link>
-          <Link
-            to="/Login"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Login
-          </Link>
+          {name ? (
+            <span className="text-sm font-medium">Hello, {name}</span>
+          ) : (
+            <Link
+              to="/Login"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Login
+            </Link>
+          )}
           <Link
             to="/"
             className="text-sm font-medium hover:underline underline-offset-4"
