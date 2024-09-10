@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Appliances from "./pages/Appliances";
 import HowItWorks from "./pages/HowItWorks";
+import AddItem from "./pages/AddItem";
+
 import Signup from "./pages/SignUp";
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
+        <Route path="/AddItem" element={<AddItem />} />
       </Routes>
     </BrowserRouter>
   );

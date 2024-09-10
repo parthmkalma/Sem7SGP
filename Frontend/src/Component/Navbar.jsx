@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <div>
-      <header className="px-4 lg:px-6 h-14 flex items-center">
+      <header className="bg-muted px-4 lg:px-6 h-14 flex items-center">
         <Link
           to="/"
           className="flex items-center justify-center text-2xl font-bold ml-5"
@@ -21,6 +21,12 @@ function Navbar() {
             className="text-sm font-medium hover:underline underline-offset-4"
           >
             Appliances
+          </Link>
+          <Link
+            to="/AddItem"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Add Item
           </Link>
           <Link
             to="/HowItWorks"

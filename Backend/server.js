@@ -17,6 +17,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+app.get("/",(req, res) => {
+  res.send("Welcome to OTP Verification Server");
+})
 app.post("/generate-otp", (req, res) => {
   console.log("Request received for OTP generation");
 
@@ -63,7 +66,7 @@ app.post("/verify-otp", (req, res) => {
    console.log("OTP verified successfully");
    res.json({ message: "OTP verified successfully" });
  } else {
-   console.log("Invalid OTP");
+   console.log("Invalid OTP");  
    res.json({ message: "Invalid OTP" });
  }
 });

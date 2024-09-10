@@ -4,6 +4,7 @@ import {} from "@heroicons/react/24/outline"; // or '24/solid'
 import Navbar from "../Component/Navbar";
 
 export default function Home() {
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
