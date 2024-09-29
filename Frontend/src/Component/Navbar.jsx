@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa"; // Importing social media icons
 import { Link } from "react-router-dom";
 import { useUser } from "../UserContext"; // Import your context hook
-import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"; // Importing social media icons
 
 function Navbar() {
   const { name } = useUser(); // Get the name from context
@@ -98,70 +98,81 @@ function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="flex flex-col items-start space-y-4 p-4">
-            <Link
-              to="/appliance"
-              className="text-lg font-medium hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              Appliances
-            </Link>
-            <Link
-              to="/HowItWorks"
-              className="text-lg font-medium hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              How It Works
-            </Link>
-            {name ? (
-              <span className="text-lg font-medium">Profile</span>
-            ) : (
+
+          {/* Main Content of the Sidebar */}
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex flex-col items-start space-y-4 p-4">
               <Link
-                to="/Login"
+                to="/appliance"
                 className="text-lg font-medium hover:underline"
                 onClick={() => setIsOpen(false)}
               >
-                Login
+                Appliances
               </Link>
-            )}
-          </div>
+              <Link
+                to="/AddItem"
+                className="text-lg font-medium hover:underline"
+                onClick={() => setIsOpen(false)}
+              >
+                Add Item
+              </Link>
+              <Link
+                to="/HowItWorks"
+                className="text-lg font-medium hover:underline"
+                onClick={() => setIsOpen(false)}
+              >
+                How It Works
+              </Link>
+              {name ? (
+                <span className="text-lg font-medium">Profile</span>
+              ) : (
+                <Link
+                  to="/Login"
+                  className="text-lg font-medium hover:underline"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+              )}
+            </div>
 
-          {/* Contact Us Section with Icons */}
-          <div className="mt-auto p-4">
-            <div className="text-lg font-medium mb-2">Contact Us:</div>
-            <div className="flex justify-around">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                <FaInstagram className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                <FaFacebook className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                <FaTwitter className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </a>
+            {/* Contact Us Section with Icons - Positioned at the bottom */}
+            <div className="p-4 pb-24">
+              <div className="text-lg font-medium mb-2">Contact Us:</div>
+              <div className="flex justify-around">
+                <a
+                  href="https://www.instagram.com/ashish_n_khatwani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  <FaInstagram className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  <FaFacebook className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  <FaTwitter className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ashish-khatwani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  <FaLinkedin className="w-6 h-6" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
