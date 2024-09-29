@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { } from "@heroicons/react/24/outline"; // or '24/solid'
 import Navbar from "../Component/Navbar";
 import { useUser } from "../UserContext";
 
 export default function Home() {
-
   const { name } = useUser(); // Get the name from context
 
   return (
@@ -13,7 +11,6 @@ export default function Home() {
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px] sm:grid-cols-1">
               <img
                 src="https://placeholder.pics/svg/50000"
@@ -22,16 +19,18 @@ export default function Home() {
                 alt="Appliances"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover w-full max-w-xs sm:max-w-full sm:w-auto"
               />
-              
+
               <div className="flex flex-col justify-center space-y-4 text-center sm:text-left">
                 <div className="space-y-3">
-                  {
-                    name ? 
-                    (<div className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl">
+                  {name ? (
+                    <div className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl">
                       Hello {name}!
                     </div>
-                    )
-                  :(<div className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl">Hello User,</div>)}
+                  ) : (
+                    <div className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl">
+                      Hello User,
+                    </div>
+                  )}
 
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
                     Rent the Appliances You Need

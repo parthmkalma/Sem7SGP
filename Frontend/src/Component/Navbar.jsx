@@ -47,6 +47,12 @@ function Navbar() {
             Appliances
           </Link>
           <Link
+            to="/AddItem"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Add Item
+          </Link>
+          <Link
             to="/HowItWorks"
             className="text-sm font-medium hover:underline underline-offset-4"
           >
@@ -69,7 +75,7 @@ function Navbar() {
           className={`fixed top-0 right-0 h-full bg-white shadow-lg z-50 transform transition-transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
-          style={{ width: "55%" }} // Sidebar takes 30% of the screen width
+          style={{ width: "55%" }} // Sidebar takes 55% of the screen width
         >
           <div className="flex justify-end p-4">
             <button
