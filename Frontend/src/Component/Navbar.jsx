@@ -14,7 +14,7 @@ function Navbar() {
           to="/"
           className="flex items-center justify-center text-2xl font-bold ml-5"
         >
-          RentiFy
+          RentIt
         </Link>
 
         {/* Mobile Menu Button */}

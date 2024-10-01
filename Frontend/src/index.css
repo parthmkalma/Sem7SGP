@@ -32,6 +32,11 @@
     @apply border-border;
   }
 
+  ::selection{
+    background: black; 
+    color: white; 
+  }
+
   body {
     @apply bg-background text-foreground font-body;
   }

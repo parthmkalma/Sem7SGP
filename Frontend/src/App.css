@@ -24,6 +24,11 @@
   color: white;
 }
 
+::selection{
+  background: black; 
+  color: white; 
+}
+
 .App-link {
   color: #61dafb;
 }

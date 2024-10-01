@@ -1,5 +1,5 @@
-import React from "react";
 import { Refrigerator } from "lucide-react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 
@@ -11,7 +11,7 @@ export default function SignupComponent() {
         <div className="w-full max-w-[450px] p-8 space-y- bg-white rounded-lg shadow-lg">
           <div className="flex flex-col items-center  text-center">
             <Refrigerator className="w-16 h-16 text-primary" />
-            <h1 className="text-4xl font-bold text-gray-800">RentiFy</h1>
+            <h1 className="text-4xl font-bold text-gray-800">RentIt</h1>
         
           </div>
           <form className="space-y-6">

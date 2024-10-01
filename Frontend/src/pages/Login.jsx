@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import axios from "axios";
 import { Refrigerator } from "lucide-react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import axios from "axios";
 import { useUser } from "../UserContext";
 
 export default function Login() {
@@ -63,7 +63,7 @@ export default function Login() {
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
           <div className="flex flex-col items-center space-y-3 text-center">
             <Refrigerator className="w-16 h-16 text-primary" />
-            <h1 className="text-4xl font-bold text-gray-800">RentiFy</h1>
+            <h1 className="text-4xl font-bold text-gray-800">RentIt</h1>
           </div>
           {step === 1 && (
             <form className="space-y-6" onSubmit={handleEmailSubmit}>
