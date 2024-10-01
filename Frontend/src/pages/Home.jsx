@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 import { useUser } from "../UserContext";
+import Carousel from "../Component/Carousel";
+
+
+
 
 export default function Home() {
   const { name } = useUser(); // Get the name from context
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -12,13 +17,14 @@ export default function Home() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px] sm:grid-cols-1">
-              <img
+              {/* <img
                 src="https://placeholder.pics/svg/50000"
-                width="550"
-                height="550"
+                width="100"
+                height="100"
                 alt="Appliances"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover w-full max-w-xs sm:max-w-full sm:w-auto"
-              />
+              /> */}
+              <Carousel/>
 
               <div className="flex flex-col justify-center space-y-4 text-center sm:text-left">
                 <div className="space-y-3">
@@ -69,7 +75,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 sm:grid-cols-1 lg:grid-cols-3 lg:gap-12">
-              <div className="grid gap-4">
+              <div className="shadow-lg grid gap-8 p-2 ">
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
@@ -77,7 +83,7 @@ export default function Home() {
                   alt="Refrigerator"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                 />
-                <div className="grid gap-1">
+                <div className="grid gap-4">
                   <h3 className="text-lg font-bold">Refrigerators</h3>
                   <p className="text-sm text-muted-foreground">
                     Keep your food fresh with our top-of-the-line rental
@@ -91,7 +97,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="grid gap-4">
+              <div className="grid gap-4 shadow-lg grid gap-8 p-2">
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
@@ -99,7 +105,7 @@ export default function Home() {
                   alt="Washing Machine"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                 />
-                <div className="grid gap-1">
+                <div className="grid gap-4">
                   <h3 className="text-lg font-bold">Washing Machines</h3>
                   <p className="text-sm text-muted-foreground">
                     Enjoy hassle-free laundry with our top-loading and
@@ -113,7 +119,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="grid gap-4">
+              <div className="grid gap-4 shadow-lg grid gap-8 p-2">
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
@@ -121,7 +127,7 @@ export default function Home() {
                   alt="Air Conditioner"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                 />
-                <div className="grid gap-1">
+                <div className="grid gap-4">
                   <h3 className="text-lg font-bold">Air Conditioners</h3>
                   <p className="text-sm text-muted-foreground">
                     Stay cool and comfortable with our energy-efficient rental
