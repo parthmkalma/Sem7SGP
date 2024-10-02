@@ -61,8 +61,8 @@ export default function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 sm:grid-cols-1 lg:grid-cols-3 lg:gap-12">
               
-                <Link to="/appliance">
-              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:bg-gray-700 hover:text-white rounded-xl" >
+            <Link to="/appliance">
+              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-300 hover:scale-110" >
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
@@ -85,7 +85,7 @@ export default function Home() {
               </div>
                 </Link>
 
-              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:bg-gray-700 hover:text-white rounded-xl">
+              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-300 hover:scale-110">
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:bg-gray-700 hover:text-white rounded-xl">
+              <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-500 hover:scale-110">
                 <img
                   src="https://placeholder.pics/svg/50000"
                   width="300"
