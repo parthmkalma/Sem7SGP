@@ -1,25 +1,31 @@
 import axios from "axios";
 import { Refrigerator } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import { useUser } from "../UserContext";
+import { useUser } from "../UserContext"; // Use the user context to access and set the token
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
-  const [name, setName] = useState(""); // Local state for name
+  const [name, setName] = useState("");
   const [step, setStep] = useState(1);
   const [message, setMessage] = useState("");
-  const { setName: setUserName } = useUser(); // Context method to set the name
+
+  const { login, token } = useUser(); // Using login from context
   const navigate = useNavigate();
+
+  // Redirect if token already exists
+  useEffect(() => {
+    if (token) {
+      navigate("/"); // Redirect to home if already logged in
+    }
+  }, [token, navigate]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/generate-otp", {
-        email,
-      });
+      await axios.post("http://localhost:5000/generate-otp", { email });
       alert("OTP sent to your email!");
       setStep(2);
     } catch (error) {
@@ -35,24 +41,20 @@ export default function Login() {
         otp,
       });
 
-      const message = response.data.message;
+      const { message, token } = response.data;
 
-      if (message === "OTP verified successfully") {
-        setMessage("Login successful!");
+      if (message === "OTP verified successfully" && token) {
         alert("Login successful!");
 
-        // Set the name in context
-        setUserName(name);
+        // Use the login function from context to set token and name
+        login(name, token);
 
-        // Redirect to home page
         navigate("/");
-      } else if (message === "Invalid OTP") {
+      } else {
         setMessage("Invalid OTP. Please try again.");
-        alert("Invalid OTP. Please try again.");
       }
     } catch (error) {
       setMessage("Error verifying OTP. Please try again.");
-      alert("Error verifying OTP. Please try again.");
     }
   };
 
@@ -79,8 +81,8 @@ export default function Login() {
                   placeholder="John Doe"
                   required
                   type="text"
-                  value={name} // Bind the input value to the name state
-                  onChange={(e) => setName(e.target.value)} // Update the name state
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                 />
               </div>
@@ -136,6 +138,7 @@ export default function Login() {
               </button>
             </form>
           )}
+          {message && <p className="text-red-500">{message}</p>}
         </div>
       </div>
     </>

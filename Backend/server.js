@@ -27,7 +27,9 @@ const generateToken = (email) => {
 const verifyToken = (req, res, next) => {
   const token = req.headers["authorization"];
   if (!token) {
-    return res.status(401).json({ message: "Access Denied. No token provided." });
+    return res
+      .status(401)
+      .json({ message: "Access Denied. No token provided." });
   }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -92,7 +94,7 @@ app.post("/verify-otp", (req, res) => {
     console.log("OTP verified successfully");
     res.json({ message: "OTP verified successfully", token });
   } else {
-    console.log("Invalid OTP");  
+    console.log("Invalid OTP");
     res.json({ message: "Invalid OTP" });
   }
 });
