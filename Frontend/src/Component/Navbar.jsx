@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa"; // Importing social media icons
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useUser } from "../UserContext"; // Import your context hook
+import { useUser } from "../UserContext";
 
 function Navbar() {
-  const { name } = useUser(); // Get the name from context
+  const { name, logout } = useUser(); // Get name and logout from context
   const [isOpen, setIsOpen] = useState(false); // State to toggle mobile sidebar
+  const [isProfileOpen, setIsProfileOpen] = useState(false); // State to toggle profile menu
+
+  const handleLogout = () => {
+    logout(); // Calls the logout function to clear the user data
+    setIsProfileOpen(false); // Close profile menu
+  };
 
   return (
     <div>
@@ -59,7 +65,24 @@ function Navbar() {
             How It Works
           </Link>
           {name ? (
-            <span className="text-sm font-medium">Profile</span>
+            <div className="relative">
+              <button
+                onClick={() => setIsProfileOpen(!isProfileOpen)}
+                className="text-sm font-medium hover:underline underline-offset-4"
+              >
+                Profile
+              </button>
+              {isProfileOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
             <Link
               to="/Login"
@@ -75,7 +98,7 @@ function Navbar() {
           className={`fixed top-0 right-0 h-full bg-white shadow-lg z-50 transform transition-transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
-          style={{ width: "55%" }} // Sidebar takes 55% of the screen width
+          style={{ width: "55%" }}
         >
           <div className="flex justify-end p-4">
             <button
@@ -99,7 +122,6 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Main Content of the Sidebar */}
           <div className="flex flex-col h-full justify-between">
             <div className="flex flex-col items-start space-y-4 p-4">
               <Link
@@ -124,7 +146,22 @@ function Navbar() {
                 How It Works
               </Link>
               {name ? (
-                <span className="text-lg font-medium">Profile</span>
+                <span
+                  className="text-lg font-medium"
+                  onClick={() => setIsProfileOpen(!isProfileOpen)}
+                >
+                  Profile
+                  {isProfileOpen && (
+                    <div className="absolute mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </span>
               ) : (
                 <Link
                   to="/Login"
@@ -136,7 +173,7 @@ function Navbar() {
               )}
             </div>
 
-            {/* Contact Us Section with Icons - Positioned at the bottom */}
+            {/* Contact Us Section with Icons */}
             <div className="p-4 pb-24">
               <div className="text-lg font-medium mb-2">Contact Us:</div>
               <div className="flex justify-around">
@@ -178,7 +215,7 @@ function Navbar() {
         </div>
       </header>
 
-      {/* Overlay for when sidebar is open (optional) */}
+      {/* Overlay for when sidebar is open */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black opacity-30 z-40 lg:hidden"
