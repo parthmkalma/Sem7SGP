@@ -3,8 +3,10 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const bodyParser = require("body-parser");
-const app = express();
+const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,9 +19,30 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
-app.get("/",(req, res) => {
+
+const generateToken = (email) => {
+  return jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+};
+
+const verifyToken = (req, res, next) => {
+  const token = req.headers["authorization"];
+  if (!token) {
+    return res.status(401).json({ message: "Access Denied. No token provided." });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({ message: "Invalid token." });
+    }
+    req.email = decoded.email;
+    next();
+  });
+};
+
+app.get("/", (req, res) => {
   res.send("Welcome to OTP Verification Server");
-})
+});
+
 app.post("/generate-otp", (req, res) => {
   console.log("Request received for OTP generation");
 
@@ -61,14 +84,22 @@ app.post("/verify-otp", (req, res) => {
   const storedOtp = otpStore[email.toLowerCase()];
   console.log(`Stored OTP: ${storedOtp}, Provided OTP: ${otp}`);
 
- if (storedOtp === otp) {
-   delete otpStore[email.toLowerCase()];
-   console.log("OTP verified successfully");
-   res.json({ message: "OTP verified successfully" });
- } else {
-   console.log("Invalid OTP");  
-   res.json({ message: "Invalid OTP" });
- }
+  if (storedOtp === otp) {
+    delete otpStore[email.toLowerCase()];
+
+    // Generate a JWT token
+    const token = generateToken(email);
+    console.log("OTP verified successfully");
+    res.json({ message: "OTP verified successfully", token });
+  } else {
+    console.log("Invalid OTP");  
+    res.json({ message: "Invalid OTP" });
+  }
+});
+
+// Route that requires authentication
+app.get("/protected", verifyToken, (req, res) => {
+  res.json({ message: "This is a protected route", email: req.email });
 });
 
 const PORT = process.env.PORT || 5000;

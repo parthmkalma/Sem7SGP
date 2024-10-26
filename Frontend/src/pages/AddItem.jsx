@@ -77,7 +77,7 @@ export default function Component() {
                 </div>
                 <div className="flex justify-end">
                   <button
-                    type="submit"
+                    type="button"
                     className="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                   >
                     Save Appliance

@@ -162,7 +162,7 @@ export default function Home() {
                   <div className="relative p-6 bg-white rounded-lg shadow-lg group overflow-hidden transition-transform duration-500 hover:scale-110 flex flex-col justify-center items-center min-h-[150px] min-w-[300px]">
                     {/* Name */}
                     <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 transform group-hover:translate-y-[-80%]">
-                      <div className="font-bold">John D.</div>
+                      <div className="font-bold">John Denver</div>
                     </div>
                     {/* Review */}
                     <p className="italic text-muted-foreground opacity-0 transition-all duration-500 transform group-hover:opacity-100 group-hover:translate-y-0 text-center">
@@ -175,7 +175,7 @@ export default function Home() {
                   <div className="relative p-6 bg-white rounded-lg shadow-lg group overflow-hidden transition-transform duration-500 hover:scale-110 flex flex-col justify-center items-center min-h-[150px] min-w-[300px]">
                     {/* Name */}
                     <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 transform group-hover:translate-y-[-80%]">
-                      <div className="font-bold">Sarah M.</div>
+                      <div className="font-bold">Sarah Mace</div>
                     </div>
                     {/* Review */}
                     <p className="italic text-muted-foreground opacity-0 transition-all duration-500 transform group-hover:opacity-100 group-hover:translate-y-0 text-center">
@@ -188,7 +188,7 @@ export default function Home() {
                   <div className="relative p-6 bg-white rounded-lg shadow-lg group overflow-hidden transition-transform duration-500 hover:scale-110 flex flex-col justify-center items-center min-h-[150px] min-w-[300px]">
                     {/* Name */}
                     <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 transform group-hover:translate-y-[-80%]">
-                      <div className="font-bold">Alex T.</div>
+                      <div className="font-bold">Alex Trubedor</div>
                     </div>
                     {/* Review */}
                     <p className="italic text-muted-foreground opacity-0 transition-all duration-500 transform group-hover:opacity-100 group-hover:translate-y-0 text-center">
