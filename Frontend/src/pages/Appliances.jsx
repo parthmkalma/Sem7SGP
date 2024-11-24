@@ -19,7 +19,7 @@ export default function Appliances() {
               our selection and get the perfect fit for your needs.
             </p>
             <Link
-              to="/appliances"
+              to="/ListedItem"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             >
               Browse Appliances

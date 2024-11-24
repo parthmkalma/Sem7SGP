@@ -8,6 +8,7 @@ import HowItWorks from "./pages/HowItWorks";
 import AddItem from "./pages/AddItem";
 
 import Signup from "./pages/SignUp";
+import ListedItem from "./pages/ListedItem";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/AddItem" element={<AddItem />} />
+        <Route path="/ListedItem" element={<ListedItem />} />
       </Routes>
     </BrowserRouter>
   );

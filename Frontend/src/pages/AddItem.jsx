@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import { useUser } from "../UserContext";
+import { useUser } from "../UserContext"; 
 export default function Component() {
   const { name } = useUser(); // Get the name from context
 
