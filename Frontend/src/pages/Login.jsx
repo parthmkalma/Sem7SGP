@@ -47,7 +47,7 @@ export default function Login() {
         alert("Login successful!");
 
         // Use the login function from context to set token and name
-        login(name, token);
+        login(name, token,email);
 
         navigate("/");
       } else {

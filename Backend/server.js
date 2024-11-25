@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const app = express();
+// const multer = require("multer");
+// const upload = multer({ dest: "uploads/" });
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -100,10 +102,34 @@ app.post("/verify-otp", (req, res) => {
 });
 
 // Route that requires authentication
-app.get("/protected", verifyToken, (req, res) => {
-  res.json({ message: "This is a protected route", email: req.email });
-});
+// app.get("/protected", verifyToken, (req, res) => {
+//   res.json({ message: "This is a protected route", email: req.email });
+// });
+app.post("/add-appliance", async (req, res) => {
+  const { applianceName, monthlyRent, notes } = req.body;
 
+  if (!applianceName || !monthlyRent) {
+    return res
+      .status(400)
+      .send("Appliance name and monthly rent are required.");
+  }
+
+  // Save the appliance data to the database
+  const appliance = new Appliance({
+    name: applianceName,
+    monthlyRent,
+    notes,
+    // Add other fields like images or user info if necessary
+  });
+
+  try {
+    await appliance.save();
+    res.status(201).send("Appliance added successfully.");
+  } catch (error) {
+    console.error("Error saving appliance:", error);
+    res.status(500).send("Failed to save appliance.");
+  }
+});
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

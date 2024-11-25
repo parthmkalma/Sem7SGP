@@ -1,0 +1,26 @@
+{
+  "appliances": [
+    {
+      "id": "e9fc",
+      "applianceName": "hhh",
+      "monthlyRent": "50",
+      "notes": "ver",
+      "userName": "Parth Kalma",
+      "userEmail": "parthmkalma@gmail.com",
+      "images": [
+        "WhatsApp Image 2024-10-22 at 22.16.38_4481d742.jpg"
+      ]
+    },
+    {
+      "id": "4982",
+      "applianceName": "washing machine",
+      "monthlyRent": "100",
+      "notes": "white colour front \nmax capacity 8Kg",
+      "userName": "Parth Kalma",
+      "userEmail": "parthmkalma@gmail.com",
+      "images": [
+        "WhatsApp Image 2024-10-22 at 22.16.38_4481d742.jpg"
+      ]
+    }
+  ]
+}

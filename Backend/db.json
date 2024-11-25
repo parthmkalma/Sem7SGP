@@ -1,19 +1,4 @@
 {
-    "appliances": [
-      {
-        "id": 1,
-        "name": "Washing Machine",
-        "type": "Home Appliance",
-        "price": 150,
-        "status": "Available"
-      },
-      {
-        "id": 2,
-        "name": "Refrigerator",
-        "type": "Home Appliance",
-        "price": 200,
-        "status": "Rented"
-      }
-    ]
-  }
-  
+  "appliances": []
+}
+    

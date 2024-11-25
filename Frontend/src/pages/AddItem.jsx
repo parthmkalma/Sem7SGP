@@ -1,8 +1,60 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import { useUser } from "../UserContext"; 
+import { useUser } from "../UserContext";
+import { useState } from "react";
+import axios from "axios";
+
 export default function Component() {
-  const { name } = useUser(); // Get the name from context
+  const { name, email } = useUser(); // Get the user's name and email from context
+  const [formData, setFormData] = useState({
+    applianceName: "",
+    monthlyRent: "",
+    notes: "",
+  });
+  const [images, setImages] = useState([]); // For simplicity, we store file names (or paths) instead of actual files in JSON Server.
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleFileChange = (e) => {
+    // Assume image filenames or base64-encoded strings are stored in JSON Server.
+    const fileNames = Array.from(e.target.files).map((file) => file.name);
+    setImages(fileNames);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const payload = {
+      applianceName: formData.applianceName,
+      monthlyRent: formData.monthlyRent,
+      notes: formData.notes,
+      userName: name, // Include the user's name
+      userEmail: email, // Include the user's email
+      images, // Save file names or paths
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4500/appliances", // JSON Server endpoint
+        payload
+      );
+
+      alert("Appliance saved successfully!");
+      // Clear the form after successful submission
+      setFormData({ applianceName: "", monthlyRent: "", notes: "" });
+      setImages([]);
+    } catch (error) {
+      console.error("Error saving appliance:", error);
+      alert("Failed to save appliance.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -17,33 +69,39 @@ export default function Component() {
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <form className="grid gap-4">
+              <form className="grid gap-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="grid gap-2">
                     <label
-                      htmlFor="name"
+                      htmlFor="applianceName"
                       className="text-sm font-medium text-gray-700"
                     >
                       Appliance Name
                     </label>
                     <input
-                      id="name"
+                      id="applianceName"
                       placeholder="e.g. Refrigerator"
+                      value={formData.applianceName}
+                      onChange={handleInputChange}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <label
-                      htmlFor="monthly-rent"
+                      htmlFor="monthlyRent"
                       className="text-sm font-medium text-gray-700"
                     >
                       Monthly Rent
                     </label>
                     <input
-                      id="monthly-rent"
+                      id="monthlyRent"
                       type="number"
                       placeholder="e.g. $50"
+                      value={formData.monthlyRent}
+                      onChange={handleInputChange}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                      required
                     />
                   </div>
                 </div>
@@ -58,6 +116,8 @@ export default function Component() {
                     id="notes"
                     rows={4}
                     placeholder="Enter any additional details"
+                    value={formData.notes}
+                    onChange={handleInputChange}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   />
                 </div>
@@ -72,15 +132,19 @@ export default function Component() {
                     id="photos"
                     type="file"
                     multiple
+                    onChange={handleFileChange}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   />
                 </div>
                 <div className="flex justify-end">
                   <button
-                    type="button"
-                    className="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    type="submit"
+                    disabled={isLoading}
+                    className={`px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
+                      isLoading ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
                   >
-                    Save Appliance
+                    {isLoading ? "Saving..." : "Save Appliance"}
                   </button>
                 </div>
               </form>
