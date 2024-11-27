@@ -10,6 +10,17 @@
       "images": [
         "WhatsApp Image 2024-10-22 at 22.16.38_4481d742.jpg"
       ]
+    },
+    {
+      "id": "0a92",
+      "applianceName": "washing machinee",
+      "monthlyRent": "50",
+      "notes": "Front Load Max cap 8Kg",
+      "contactNumber": "1234567890",
+      "location": "AHMEDABAD",
+      "userName": "Parth Kalma",
+      "userEmail": "parthmkalma@gmail.com",
+      "images": []
     }
   ]
 }

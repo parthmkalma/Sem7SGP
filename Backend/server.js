@@ -169,6 +169,7 @@ app.post("/dataStore", upload.single("photo"), async (req, res) => {
     res.status(500).send("Failed to save appliance.");
   }
 });
+
 app.post("/rent", async (req, res) => {
   const {
     applianceId,
@@ -291,6 +292,44 @@ app.post("/uploaddd", upload.single("file"), (req, res) => {
   });
 });
 
+// const transporter = nodemailer.createTransport({
+//   service: "Gmail", // or use your email provider
+//   auth: {
+//     user: "your-email@gmail.com", // Your email
+//     pass: "your-email-password", // Your email password or app password
+//   },
+// });
+
+app.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  console.log("Contact Form Data Received:", { name, email, message });
+
+  // Email options
+  const mailOptions = {
+    from: `"Feedback Form" <your-email@gmail.com>`, // Sender address
+    to: "parthmkalma@gmail.com", // Your email to receive the form data
+    subject: "Feedback Form Submission", // Subject
+    html: `
+      <h1>Feedback Form Submission</h1>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:${message}</strong></p>
+      
+    `,
+  };
+
+  try {
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    res
+      .status(200)
+      .json({ message: "Form submitted successfully and email sent!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ message: "Failed to send email." });
+  }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -37,7 +37,7 @@ export default function ListedItems() {
     <div>
       <Navbar />
       {/* Add spacing between Navbar and search bar */}
-      <div className="mt-6 flex flex-col items-center gap-6 mb-8">
+      <div className="mt-6  flex flex-col items-center gap-6 mb-8">
         {/* Search Input */}
         <input
           type="text"
@@ -59,10 +59,12 @@ export default function ListedItems() {
       </div>
 
       {/* Displaying Filtered and Sorted Appliances */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredAndSortedAppliances.map((appliance) => (
-          <ApplianceCard key={appliance.id} appliance={appliance} />
-        ))}
+      <div className="m-6">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredAndSortedAppliances.map((appliance) => (
+            <ApplianceCard key={appliance.id} appliance={appliance} />
+          ))}
+        </div>
       </div>
     </div>
   );

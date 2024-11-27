@@ -2,41 +2,41 @@ import React from "react";
 import { useUser } from "../UserContext";
 
 function ApplianceCard({ appliance }) {
-  // Handle the Rent Now button click
-  const { name, email } = useUser(); // Get the user's name and email from context
- const handleRentNow = async () => {
-   //  const { name,email } = useUser(); // Get the name from context
 
-   try {
-     const response = await fetch("http://localhost:5000/rent", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify({
-         applianceId: appliance.id, // Unique identifier for the appliance
-         applianceName: appliance.applianceName, // Name of the appliance
-         monthlyRent: appliance.monthlyRent, // Rental price
-         notes: appliance.notes, // Additional information
-         userName: appliance.userName, // Owner's name
-         userEmail: appliance.userEmail, // Owner's email
-         currentLoginName: name,
-         currentLoginEmail: email,
-       }),
-     });
+  const { name, email } = useUser();
 
-     if (response.ok) {
-       alert("Appliance rented successfully!");
-     } else {
-       const errorData = await response.json();
-       alert(`Failed to rent appliance: ${errorData.message}`);
-     }
-   } catch (error) {
-     console.error("Error renting appliance:", error);
-     alert("An error occurred. Please try again later.");
-   }
- };
+  const handleRentNow = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/rent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          applianceId: appliance.id, // Unique identifier for the appliance
+          applianceName: appliance.applianceName, // Name of the appliance
+          monthlyRent: appliance.monthlyRent, // Rental price
+          notes: appliance.notes, // Additional information
+          contactNumber: appliance.contactNumber, // New field
+          location: appliance.location, // New field
+          userName: appliance.userName, // Owner's name
+          userEmail: appliance.userEmail, // Owner's email
+          currentLoginName: name, // Current user's name
+          currentLoginEmail: email, // Current user's email
+        }),
+      });
 
+      if (response.ok) {
+        alert("Appliance rented successfully!");
+      } else {
+        const errorData = await response.json();
+        alert(`Failed to rent appliance: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error("Error renting appliance:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
 
   return (
     <div className="border border-gray-300 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
@@ -44,7 +44,7 @@ function ApplianceCard({ appliance }) {
       <div className="relative h-48">
         <img
           src={`http://localhost:4500/${appliance.images[0]}`}
-          alt={appliance.applianceName}
+          alt="fetching..."
           layout="fill"
           objectFit="cover"
           className="" // Apply grayscale filter to the image
@@ -62,10 +62,15 @@ function ApplianceCard({ appliance }) {
         <p className="text-sm text-gray-600 mb-2">
           Description: {appliance.notes}
         </p>
+        <p className="text-sm text-gray-600 mb-2">
+          Location: {appliance.location} 
+        </p>
+        <p className="text-sm text-gray-600 mb-2">
+          Contact Number: {appliance.contactNumber} 
+        </p>
         <p className="text-sm text-gray-600">Posted by: {appliance.userName}</p>
       </div>
 
-      {/* Rent Button */}
       <div className="p-4 bg-gray-100">
         <button
           onClick={handleRentNow}

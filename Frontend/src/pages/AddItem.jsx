@@ -10,8 +10,10 @@ export default function Component() {
     applianceName: "",
     monthlyRent: "",
     notes: "",
+    contactNumber: "", // New field
+    location: "", // New field
   });
-  const [images, setImages] = useState([]); // For simplicity, we store file names (or paths) instead of actual files in JSON Server.
+  const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
@@ -20,7 +22,6 @@ export default function Component() {
   };
 
   const handleFileChange = (e) => {
-    // Assume image filenames or base64-encoded strings are stored in JSON Server.
     const fileNames = Array.from(e.target.files).map((file) => file.name);
     setImages(fileNames);
   };
@@ -30,9 +31,7 @@ export default function Component() {
     setIsLoading(true);
 
     const payload = {
-      applianceName: formData.applianceName,
-      monthlyRent: formData.monthlyRent,
-      notes: formData.notes,
+      ...formData, // Includes applianceName, monthlyRent, notes, contactNumber, location
       userName: name, // Include the user's name
       userEmail: email, // Include the user's email
       images, // Save file names or paths
@@ -45,8 +44,13 @@ export default function Component() {
       );
 
       alert("Appliance saved successfully!");
-      // Clear the form after successful submission
-      setFormData({ applianceName: "", monthlyRent: "", notes: "" });
+      setFormData({
+        applianceName: "",
+        monthlyRent: "",
+        notes: "",
+        contactNumber: "", // Reset contact number
+        location: "", // Reset location
+      });
       setImages([]);
     } catch (error) {
       console.error("Error saving appliance:", error);
@@ -105,6 +109,41 @@ export default function Component() {
                     />
                   </div>
                 </div>
+                <div className="grid gap-4">
+                  <div className="grid gap-2">
+                    <label
+                      htmlFor="contactNumber"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Contact Number
+                    </label>
+                    <input
+                      id="contactNumber"
+                      type="tel"
+                      placeholder="e.g. 123-456-7890"
+                      value={formData.contactNumber}
+                      onChange={handleInputChange}
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                      required
+                    />
+                  </div>
+                  <div className="grid gap-2">
+                    <label
+                      htmlFor="location"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Location
+                    </label>
+                    <input
+                      id="location"
+                      placeholder="e.g. New York, NY"
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                      required
+                    />
+                  </div>
+                </div>
                 <div className="grid gap-2">
                   <label
                     htmlFor="notes"
@@ -154,7 +193,6 @@ export default function Component() {
       ) : (
         <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
-            <div className="mx-auto h-12 w-12 text-primary" />
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               You are not logged in. Please login.
             </h1>

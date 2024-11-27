@@ -64,6 +64,12 @@ function Navbar() {
           >
             How It Works
           </Link>
+          <Link
+            to="/contactUs"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Feedback
+          </Link>
           {name ? (
             <div className="relative">
               <button

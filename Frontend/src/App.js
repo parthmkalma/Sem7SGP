@@ -9,6 +9,7 @@ import AddItem from "./pages/AddItem";
 
 import Signup from "./pages/SignUp";
 import ListedItem from "./pages/ListedItem";
+import ContactAndFeedback from "./pages/ContactAndFeedback";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/AddItem" element={<AddItem />} />
         <Route path="/ListedItem" element={<ListedItem />} />
+        <Route path="/contactUs" element={<ContactAndFeedback />} />
       </Routes>
     </BrowserRouter>
   );
