@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 
 export default function Component() {
+   const handleScroll = () => {
+     const targetSection = document.getElementById("step1");
+     targetSection.scrollIntoView({ behavior: "smooth" });
+   };
   return (
     <>
       <Navbar />
@@ -30,7 +34,8 @@ export default function Component() {
                       Get Started
                     </Link>
                     <Link
-                      href="#"
+                      to ="#"
+                      onClick={handleScroll}
                       className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                       prefetch={false}
                     >
@@ -48,7 +53,7 @@ export default function Component() {
               </div>
             </div>
           </section>
-          <section className="w-full py-12 md:py-24 lg:py-32">
+          <section className="w-full py-12 md:py-24 lg:py-32" id="step1">
             <div className="container px-4 md:px-6">
               <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                 <img
@@ -222,5 +227,3 @@ function CheckIcon(props) {
     </svg>
   );
 }
-
-
