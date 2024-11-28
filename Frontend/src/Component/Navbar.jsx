@@ -70,6 +70,12 @@ function Navbar() {
           >
             Feedback
           </Link>
+          <Link
+            to="/TeamPage"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            About Us
+          </Link>
           {name ? (
             <div className="relative">
               <button

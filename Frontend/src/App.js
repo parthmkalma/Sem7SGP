@@ -10,6 +10,7 @@ import AddItem from "./pages/AddItem";
 import Signup from "./pages/SignUp";
 import ListedItem from "./pages/ListedItem";
 import ContactAndFeedback from "./pages/ContactAndFeedback";
+import TeamPage from "./pages/TeamPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/AddItem" element={<AddItem />} />
         <Route path="/ListedItem" element={<ListedItem />} />
         <Route path="/contactUs" element={<ContactAndFeedback />} />
+        <Route path="/TeamPage" element={<TeamPage />} />
       </Routes>
     </BrowserRouter>
   );
