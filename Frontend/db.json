@@ -10,6 +10,19 @@
       "userName": "Parth Kalma",
       "userEmail": "parthmkalma@gmail.com",
       "images": []
+    },
+    {
+      "id": "3ea7",
+      "applianceName": "microwave",
+      "monthlyRent": "25",
+      "notes": "low power\nblack",
+      "contactNumber": "1234659780",
+      "location": "Vadodara",
+      "userName": "Ashish",
+      "userEmail": "21it066@charusat.edu.in",
+      "images": [
+        "WhatsApp Image 2024-11-09 at 11.27.54 AM.jpeg"
+      ]
     }
   ]
 }
