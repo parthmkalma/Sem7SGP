@@ -1,7 +1,7 @@
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import * as Collapsible from "@radix-ui/react-collapsible";
 import React from "react";
 import { Link } from "react-router-dom";
-import * as Collapsible from "@radix-ui/react-collapsible";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Navbar from "../Component/Navbar";
 
 export default function Appliances() {
@@ -93,7 +93,7 @@ export default function Appliances() {
                   hassle of ownership.
                 </p>
                 <Link
-                  to="/appliances"
+                  to="/ListedItem"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 mt-6"
                 >
                   Browse Appliances

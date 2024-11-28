@@ -74,7 +74,7 @@ function Navbar() {
             to="/TeamPage"
             className="text-sm font-medium hover:underline underline-offset-4"
           >
-            About Us
+            About Team
           </Link>
           {name ? (
             <div className="relative">
