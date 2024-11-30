@@ -108,7 +108,7 @@ export default function ContactAndFeedback() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Contact Us"
                   className="rounded-xl shadow-lg"
                 />

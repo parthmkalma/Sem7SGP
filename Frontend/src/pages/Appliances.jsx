@@ -112,25 +112,29 @@ const applianceData = [
     id: 1,
     name: "Refrigerator",
     price: "$25/month",
-    image: "https://placeholder.pics/svg/50000",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrXaW-V-wcIis68y-ucIeQQFBlX_PB7TuYCA&s",
   },
   {
     id: 2,
     name: "Washing Machine",
     price: "$20/month",
-    image: "https://placeholder.pics/svg/50000",
+    image:
+      "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
     name: "Dishwasher",
     price: "$18/month",
-    image: "https://placeholder.pics/svg/50000",
+    image:
+      "https://t4.ftcdn.net/jpg/08/63/94/73/360_F_863947325_UT7qMXcNIJxe4iX5z8sHbYYptHUFaDVn.jpg",
   },
   {
     id: 4,
     name: "Dryer",
     price: "$22/month",
-    image: "https://placeholder.pics/svg/50000",
+    image:
+      "https://img.freepik.com/premium-photo/clothes-dryer-with-white-background-high-quality-ul_889056-82643.jpg",
   },
 ];
 

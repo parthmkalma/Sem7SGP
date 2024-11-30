@@ -67,7 +67,7 @@ export default function Home() {
               <Link to="/appliance">
                 <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-300 hover:scale-110">
                   <img
-                    src="https://placeholder.pics/svg/50000"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrXaW-V-wcIis68y-ucIeQQFBlX_PB7TuYCA&s"
                     width="300"
                     height="200"
                     alt="Refrigerator"
@@ -91,7 +91,7 @@ export default function Home() {
 
               <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-300 hover:scale-110">
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width="300"
                   height="200"
                   alt="Washing Machine"
@@ -114,7 +114,7 @@ export default function Home() {
 
               <div className="shadow-lg grid gap-8 p-2 hover:shadow-3xl hover:text-white rounded-xl hover:bg-neutral-500  transition-transform duration-500 hover:scale-110">
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://img.freepik.com/premium-photo/air-conditioner-hd-8k-wallpaper-stock-photographic-image_915071-27095.jpg"
                   width="300"
                   height="200"
                   alt="Air Conditioner"

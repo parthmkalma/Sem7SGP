@@ -34,7 +34,7 @@ export default function Component() {
                       Get Started
                     </Link>
                     <Link
-                      to ="#"
+                      to="#"
                       onClick={handleScroll}
                       className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                       prefetch={false}
@@ -44,11 +44,9 @@ export default function Component() {
                   </div>
                 </div>
                 <img
-                  src="https://placeholder.pics/svg/50000"
-                  width="550"
-                  height="310"
+                  src="https://images.unsplash.com/photo-1586208958839-06c17cacdf08?q=80&w=1865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Hero"
-                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:w-[1000px] lg:h-[300px] lg:order-last"
                 />
               </div>
             </div>
@@ -57,7 +55,7 @@ export default function Component() {
             <div className="container px-4 md:px-6">
               <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://st4.depositphotos.com/1001877/21032/i/450/depositphotos_210322230-stock-photo-set-household-kitchen-technics-yellow.jpg"
                   width="550"
                   height="310"
                   alt="Select Appliance"
@@ -130,7 +128,7 @@ export default function Component() {
                   </ul>
                 </div>
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://images.pexels.com/photos/6508357/pexels-photo-6508357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width="550"
                   height="310"
                   alt="Delivery and Installation"
@@ -143,7 +141,7 @@ export default function Component() {
             <div className="container px-4 md:px-6">
               <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                 <img
-                  src="https://placeholder.pics/svg/50000"
+                  src="https://images.unsplash.com/photo-1668910231038-e342ad670789?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width="550"
                   height="310"
                   alt="Manage Rental"
